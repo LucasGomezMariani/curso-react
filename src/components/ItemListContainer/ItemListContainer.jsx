@@ -1,13 +1,15 @@
 import { Item } from "./Item";
-function ItemListContainer (props) {
-    return(
+import { Title } from "../Title/Title";
+import ItemCount from './ItemCount';
+import products from './../../data/data';
+
+function ItemListContainer() {
+    return (
         <>
-            <h1>{props.greeting}</h1>
-            <Item/>
-            <Item/>
-            <Item/>
+            <Title greeting='Productos' />
+            <Item />
         </>
     )
 }
 
-export {ItemListContainer};
+export { ItemListContainer };

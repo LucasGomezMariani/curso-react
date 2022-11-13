@@ -5,7 +5,7 @@ import { CartWidget } from './CartWidget';
 function NavBar(prop) {
     
     return(
-        <nav className="NavBar">
+        <nav className="NavBar_">
             <a href='/'>{prop.logo}</a>
             <h2>{prop.brand}</h2>
             

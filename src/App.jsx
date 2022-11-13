@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <NavBar brand='BARATITO' logo= ''/>
-      <ItemListContainer greeting='Productos'/>
+      <ItemListContainer />
     </>
   );
 }
