@@ -1,14 +1,22 @@
-import { Item } from "./Item";
+
 import { Title } from "../Title/Title";
-import ItemCount from './ItemCount';
-import products from './../../data/data';
+import ItemList from './ItemList';
+
+
+
+
+
 
 function ItemListContainer() {
+
+
     return (
-        <>
+        <div className="container">
             <Title greeting='Productos' />
-            <Item />
-        </>
+            <div className="row row-cols-1 row-cols-md-3 g-5">
+                <ItemList />
+            </div>
+        </div>
     )
 }
 
