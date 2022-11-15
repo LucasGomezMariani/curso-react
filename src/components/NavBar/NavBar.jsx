@@ -13,13 +13,13 @@ function NavBar(prop) {
 
             <lu className="Categorias">
                 <li>
-                    <Link to="/">Electronica</Link>
+                    <Link to="/category/electronica">Electronica</Link>
                 </li>
                 <li>
-                    <Link to="/">Calzado</Link>
+                    <Link to="/category/calzado">Calzado</Link>
                 </li>
                 <li>
-                    <Link to="/">Accesorios</Link>
+                    <Link to="/category/accesorios">Accesorios</Link>
                 </li>
             </lu>
             <CartWidget />

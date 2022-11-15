@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 function Item(prop) {
 
-    const urlDetail = `/detail/${prop.id}`
+    const urlDetail = `/item/${prop.id}`
 
     return (
         <div className="col">
@@ -11,7 +11,7 @@ function Item(prop) {
                     <h5 className="card-title text-center">{prop.title}</h5>
                     <h3 className="card-title text-center pb-3">{prop.price}</h3>
                     <Link to={urlDetail}>
-                    <button className="btn btn-primary justify-content-center">Agregar al carrito</button>
+                    <button className="btn btn-primary justify-content-center">Ver Más</button>
                     </Link>
                 </div>
             </div>

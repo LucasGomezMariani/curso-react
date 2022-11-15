@@ -1,17 +1,22 @@
 import { useState, useEffect } from "react";
 import getData from './../../service/mockService';
 import Item from './Item';
+import { useParams } from 'react-router-dom';
+
+
 
 function ItemList() {
     const [products, setProducts] = useState([]);
+    const { id } = useParams(); 
+    console.log(useParams());
 
     useEffect(
         () => {
-            getData().then((respuestaData) => {
+            getData(id).then((respuestaData) => {
                 setProducts(respuestaData);
             });
 
-        }, []
+        }, [id]
     );
 return (
         products.map((product) => {
