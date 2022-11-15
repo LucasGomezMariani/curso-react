@@ -1,18 +1,22 @@
-import { getSingleItem } from './../../service/mockService';
 import { useState, useEffect } from 'react';
+import { getSingleItem } from './../../service/mockService';
 import ItemDetail from './ItemDetail';
+import { useParams } from "react-router-dom";
+
 
 function ItemDetailContainer() {
-    const [product, setProduct] = useState([])
+
+    const [product, setProduct] = useState([]);
+    const { id } = useParams();
 
     async function getItemAsync() {
-        let answer = await getSingleItem();
+        let answer = await getSingleItem(id);
         setProduct(answer);
-    }
+    };
 
     useEffect(() => {
         getItemAsync();
-    }, []);
+    },[]);
 
     return (
         <ItemDetail
@@ -23,7 +27,7 @@ function ItemDetailContainer() {
             description={product.description}
         />
 
-    )
+    );
 }
 
 export default ItemDetailContainer;

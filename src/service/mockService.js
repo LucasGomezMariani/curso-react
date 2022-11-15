@@ -9,11 +9,15 @@ function getData () {
     });
 }
 
-export function getSingleItem () {
+export function getSingleItem (idParams) {
     return new Promise((resolve) => {
+        let itemRequested = products.find( (item) => item.is === Number(idParams) )
+
         setTimeout(() => {
-            resolve(products[6]);
+            resolve(itemRequested);
         }, 2000);
+
+
     });
 }
 export default getData;

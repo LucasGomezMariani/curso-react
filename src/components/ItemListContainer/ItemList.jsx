@@ -18,6 +18,8 @@ return (
             return (
                 <Item
                     key={product.id}
+                    
+                    id={product.id}
                     title={product.title + " " + product.id}
                     price={"$" + product.price}
                     imgurl={product.imgurl}
