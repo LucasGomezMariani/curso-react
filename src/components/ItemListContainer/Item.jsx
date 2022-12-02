@@ -1,17 +1,17 @@
 import { Link } from 'react-router-dom';
-function Item(prop) {
+function Item({imgurl, title, id, price}) {
 
-    const urlDetail = `/item/${prop.id}`
+    const urlDetail = `/item/${id}`
 
     return (
         <div className="col">
             <div className="card">
-                <img src={prop.imgurl} className="card-img-top" alt={`${prop.title} ${prop.id}`} />
-                <div className="card-body d-flex flex-column">
-                    <h5 className="card-title text-center">{prop.title}</h5>
-                    <h3 className="card-title text-center pb-3">{prop.price}</h3>
+                <img src={imgurl} className="card-img-top" alt={`${title} ${id}`} />
+                <div className="card-body d-flex flex-column align-items-center">
+                    <h5 className="card-title text-center">{title}</h5>
+                    <h3 className="card-title text-center pb-3">{price}</h3>
                     <Link to={urlDetail}>
-                    <button className="btn btn-primary justify-content-center">Ver Más</button>
+                    <button className="btn btn-primary">Ver Más</button>
                     </Link>
                 </div>
             </div>

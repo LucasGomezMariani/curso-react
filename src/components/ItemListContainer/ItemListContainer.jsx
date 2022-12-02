@@ -1,11 +1,5 @@
-
 import { Title } from "../Title/Title";
 import ItemList from './ItemList';
-
-
-
-
-
 
 function ItemListContainer() {
 
