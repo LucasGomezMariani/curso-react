@@ -5,21 +5,21 @@ import ItemDetail from './ItemDetail';
 
 function ItemDetailContainer() {
 
-    const [product, setProduct] = useState({})
-    const { id } = useParams();
+  const [product, setProduct] = useState({})
+  const { id } = useParams();
 
-    async function getItemAsync() {
-        let answer = await getSingleItem(id);
-        setProduct(answer);
-    };
+  async function getItemAsync() {
+    let answer = await getSingleItem(id);
+    setProduct(answer);
+  };
 
-    useEffect(() => {
-        getItemAsync();
-    }, []);
+  useEffect(() => {
+    getItemAsync();
+  }, []);
 
-    return <ItemDetail 
-        product={product}
-    />
+  return <ItemDetail
+    product={product}
+  />
 }
 
 export default ItemDetailContainer;

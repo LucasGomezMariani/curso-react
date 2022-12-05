@@ -7,53 +7,53 @@ export const cartContext = createContext()
 // Es el componente que habilita el acceso al context
 export function CartContextProvider({ children }) {
 
-    const [cart, setCart] = useState([]);
+  const [cart, setCart] = useState([]);
 
-    function addToCart(product, count) {
-        let newCart = [...cart]
-        let itemExistInCart = cart.findIndex (item => item.id === product.id)
-        
-        if (itemExistInCart !== -1) {
-            newCart[itemExistInCart].count += count
-            setCart(newCart)
+  function addToCart(product, count) {
+    let newCart = [...cart]
+    let itemExistInCart = cart.findIndex(item => item.id === product.id)
 
-        } else {
-            product.count = count
-            newCart.push(product)
-            setCart(newCart)
-        }
-    }
-    function clearCart() {
-        setCart([])
-    }
-    function removeItem(idRemove) {
-        let newCart = cart.filter(item => item.id !== idRemove)
-        setCart(...newCart)
-    }
-    function itemsInCart() {
-        let total = 0
-        cart.forEach(item => total = total + item.count)
-        return total
-    }
-    function priceInCart() {
-        let total = 0
-        cart.forEach(item => total = total + (item.count * item.price))
-        return total
+    if (itemExistInCart !== -1) {
+      newCart[itemExistInCart].count += count
+      setCart(newCart)
 
+    } else {
+      product.count = count
+      newCart.push(product)
+      setCart(newCart)
     }
-    const value = {
-        addToCart,
-        clearCart,
-        removeItem,
-        itemsInCart,
-        priceInCart
-    }
+  }
+  function clearCart() {
+    setCart([])
+  }
+  function removeItem(idRemove) {
+    let newCart = cart.filter(item => item.id !== idRemove)
+    setCart(...newCart)
+  }
+  function itemsInCart() {
+    let total = 0
+    cart.forEach(item => total = total + item.count)
+    return total
+  }
+  function priceInCart() {
+    let total = 0
+    cart.forEach(item => total = total + (item.count * item.price))
+    return total
 
-    // 3. Retornamos el componente con el Provider del context
-    return (
-        // 4. pasamos la prop "value" para habilitar las funciones/variables del context
-        <cartContext.Provider value={value}> {children} </cartContext.Provider>
-    )
+  }
+  const value = {
+    addToCart,
+    clearCart,
+    removeItem,
+    itemsInCart,
+    priceInCart
+  }
+
+  // 3. Retornamos el componente con el Provider del context
+  return (
+    // 4. pasamos la prop "value" para habilitar las funciones/variables del context
+    <cartContext.Provider value={value}> {children} </cartContext.Provider>
+  )
 }
 
 // 5. conectamos con el context con los componentes que queremos interactuar 'CartWidget'

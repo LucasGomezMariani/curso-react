@@ -8,15 +8,15 @@ import { useContext } from 'react';
 import { cartContext } from '../../context/cartContext';
 
 function CartWidget() {
-    // 3. Inicializamos el contexto
-    const miContext = useContext(cartContext)
-    console.log(miContext)
-    return (
-        <Link to={"/"}>
-            <FontAwesomeIcon icon={faCartShopping} />
-            <span>{miContext.itemsInCart()}</span>
-        </Link>
-    )
+	// 3. Inicializamos el contexto
+	const miContext = useContext(cartContext)
+	console.log(miContext)
+	return (
+		<Link to={"/"}>
+			<FontAwesomeIcon icon={faCartShopping} />
+			<span>{miContext.itemsInCart()}</span>
+		</Link>
+	)
 }
 
 export { CartWidget };
