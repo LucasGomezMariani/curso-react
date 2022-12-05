@@ -18,12 +18,7 @@ function ItemDetailContainer() {
     }, []);
 
     return <ItemDetail 
-        title={product.title}
-        imgurl={product.imgurl}
-        id={product.id}
-        price={product.price}
-        description={product.description}
-        stock={product.stock}
+        product={product}
     />
 }
 

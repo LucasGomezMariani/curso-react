@@ -7,7 +7,6 @@ function ItemList() {
 
     const [products, setProducts] = useState([]);
     const { id } = useParams();
-    console.log(useParams());
 
     useEffect(() => {
         // 1° funcion del efecto. La que ejecuta el efecto

@@ -11,7 +11,7 @@ function getData (id) {
             setTimeout(() => {
                 let itemRequested = products.filter( item => item.category === id )
                 resolve(itemRequested)
-            }, 2000)
+            }, 1000)
         }
         
     });
@@ -23,7 +23,7 @@ export function getSingleItem (id) {
 
         setTimeout(() => {
             resolve(itemRequested);
-        }, 2000);
+        }, 1000);
 
 
     });

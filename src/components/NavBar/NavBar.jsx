@@ -3,13 +3,13 @@ import './categorias.css'
 import { CartWidget } from './CartWidget';
 import { Link } from "react-router-dom";
 
-function NavBar(prop) {
+function NavBar({logo, brand}) {
 
     return (
         <>
         <nav className="navBar_">
-            <Link to="/">{prop.logo}</Link>
-            <Link to='/'><h2>{prop.brand}</h2></Link>
+            <Link to="/">{logo}</Link>
+            <Link to='/'><h2>{brand}</h2></Link>
 
             <lu className="Categorias">
                 <li>

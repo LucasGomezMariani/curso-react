@@ -1,15 +1,22 @@
 import './categorias.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping }  from "@fortawesome/free-solid-svg-icons";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { Link } from 'react-router-dom';
+// 1.Importamos el hook useContext
+import { useContext } from 'react';
+// 2. Importamos el context a utilizar
+import { cartContext } from '../../context/cartContext';
 
 function CartWidget() {
-    return(
-        <>
-        <a href="/"><FontAwesomeIcon icon={ faCartShopping } /></a>
-         
-        </>
-
+    // 3. Inicializamos el contexto
+    const miContext = useContext(cartContext)
+    console.log(miContext)
+    return (
+        <Link to={"/"}>
+            <FontAwesomeIcon icon={faCartShopping} />
+            <span>{miContext.itemsInCart()}</span>
+        </Link>
     )
 }
 
-export {CartWidget};
+export { CartWidget };
