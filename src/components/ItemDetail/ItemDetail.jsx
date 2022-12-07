@@ -1,17 +1,18 @@
 import ItemCount from './../ItemListContainer/ItemCount';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { cartContext } from './../../context/cartContext';
+import { Link } from 'react-router-dom';
 
 function ItemDetail({ product }) {
 
   const { addToCart } = useContext(cartContext)
-
+  const [isInCart, setIsInCart] = useState(false)
 
   // 1° declaramos un handler para el evento
   // 4° recibimos por parametro la respuesta de ItemCount
   function onAddToCart(count) {
-    alert(`se agregaron al ${count} carrito`)
     addToCart(product, count)
+    setIsInCart(true)
   }
   return (
     <div className="container d-flex justify-content-center">
@@ -22,12 +23,13 @@ function ItemDetail({ product }) {
           <h2 className="card-title">{`$ ${product.price}`}</h2>
           <p className="card-text">{product.description}</p>
         </div>
-        <ItemCount
-          inicio={1}
-          stock={product.stock}
-          // 2° pasamos por Prop el evento al ItemCount
-          onAddToCart={onAddToCart}
-        />
+        {isInCart ?
+          <Link to='/cart'>
+            <button className="btn btn-primary m-2">Ir al carrito.</button>
+          </Link> :
+          // 2° pasamos por Prop el evento al ItemCount 
+          <ItemCount inicio={1} stock={product.stock} onAddToCart={onAddToCart} />
+        }
       </div>
 
     </div>
