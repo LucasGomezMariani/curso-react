@@ -25,7 +25,7 @@ function ItemDetail({ product }) {
         </div>
         {isInCart ?
           <Link to='/cart'>
-            <button className="btn btn-primary m-2">Ir al carrito.</button>
+            <button className="btn btn-primary m-2">Ir al carrito</button>
           </Link> :
           // 2° pasamos por Prop el evento al ItemCount 
           <ItemCount inicio={1} stock={product.stock} onAddToCart={onAddToCart} />
