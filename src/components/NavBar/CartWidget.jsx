@@ -6,7 +6,6 @@ function CartWidget() {
     return(
         <>
         <a href="/"><FontAwesomeIcon icon={ faCartShopping } /></a>
-         
         </>
 
     )
