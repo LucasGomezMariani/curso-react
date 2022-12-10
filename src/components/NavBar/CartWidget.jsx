@@ -10,7 +10,6 @@ import { cartContext } from '../../context/cartContext';
 function CartWidget() {
 	// 3. Inicializamos el contexto
 	const miContext = useContext(cartContext)
-	console.log(miContext)
 	return (
 		<Link to={"/cart"}>
 			<FontAwesomeIcon icon={faCartShopping} />

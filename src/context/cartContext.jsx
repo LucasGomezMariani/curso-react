@@ -27,8 +27,11 @@ export function CartContextProvider({ children }) {
     setCart([])
   }
   function removeItem(idRemove) {
-    let newCart = cart.filter(item => item.id !== idRemove)
-    setCart(...newCart)
+    // let newCart = cart.filter(item => item.id !== idRemove)
+    // setCart(...newCart)
+    console.log('Se removió el product', idRemove)
+
+;
   }
   function itemsInCart() {
     let total = 0

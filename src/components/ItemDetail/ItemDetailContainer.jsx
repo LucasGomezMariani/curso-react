@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from "react-router-dom";
-import { getSingleItem } from './../../service/mockService';
+import { getDataById } from './../../service/fireStore';
 import ItemDetail from './ItemDetail';
 import { LinesLoader } from './../loader/Loaders';
 
@@ -11,7 +11,7 @@ function ItemDetailContainer() {
   const { id } = useParams();
 
   function getItemAsync() {
-    getSingleItem(id).then((answer) => {
+    getDataById(id).then((answer) => {
       setProduct(answer);
       setLoading(false);
     })

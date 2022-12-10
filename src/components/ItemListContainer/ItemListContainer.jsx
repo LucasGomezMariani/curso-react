@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import getData from './../../service/mockService';
+import { getData, getDocumentByCategory } from './../../service/fireStore';
 import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
 import { Title } from "../Title/Title";
@@ -9,12 +9,16 @@ function ItemListContainer() {
 
   const [products, setProducts] = useState(null);
   const { id } = useParams();
-  // const loader = <h2>Cargando ..</h2>
 
   async function getDataAsync() {
-    let answer = await getData(id);
-    setProducts(answer);
-  };
+    if (!id) {
+      let answer = await getData();
+      setProducts(answer);
+    } else {
+      let answer = await getDocumentByCategory(id)
+      setProducts(answer);
+    };
+  }
 
   useEffect(() => {
     // 1° funcion del efecto. La que ejecuta el efecto
