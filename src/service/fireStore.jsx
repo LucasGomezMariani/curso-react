@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
-import { collection, getDocs, getFirestore, doc, getDoc, where, query } from "firebase/firestore";
-
-
+import { collection, getDocs, getFirestore, doc, getDoc, where, query, addDoc } from "firebase/firestore";
+/* import products from "../data/data";
+ */
 const firebaseConfig = {
   apiKey: "AIzaSyAyfXEOQ9D4Pa3bjhJzkPvl-WaV_0mxFpI",
   authDomain: "baratito-4739d.firebaseapp.com",
@@ -38,17 +38,40 @@ export async function getDataById(idParam) {
 }
 // 3. Traer los ducumentos segun la categoría
 export async function getDocumentByCategory(categoryParam) {
-const collectionFilteredProductsRef = collection(DB, 'products');
-const queryCategory = query(collectionFilteredProductsRef, where('category', '==', categoryParam));
+  const collectionFilteredProductsRef = collection(DB, 'products');
+  const queryCategory = query(collectionFilteredProductsRef, where('category', '==', categoryParam));
 
-const documentsSnapshot = await getDocs(queryCategory);
+  const documentsSnapshot = await getDocs(queryCategory);
 
-const documentData = documentsSnapshot.docs.map(doc => {
-  let docDataWithId = doc.data();
-  docDataWithId.id = doc.id;
-  return docDataWithId;
-})
+  const documentData = documentsSnapshot.docs.map(doc => {
+    let docDataWithId = doc.data();
+    docDataWithId.id = doc.id;
+    return docDataWithId;
+  })
 
-return documentData;
+  return documentData;
 
 }
+
+// Envio de orden de compra a FireBase
+export async function postOrder(orderData) {
+  const collectionRef = collection(DB, 'orders');
+  const docOrder = await addDoc(collectionRef, orderData);
+  console.log('====================================');
+  console.log(docOrder);
+  console.log(docOrder.id);
+  console.log('====================================');
+  return docOrder.id;
+}
+
+// Funcion para subir datos a FireBase desde un array
+/* export async function postProducts() {
+  const collectionRef = collection(DB, 'products');
+
+  for (let item of products) {
+    let docOrder = await addDoc(collectionRef, item);
+    console.log('documento creado, Id:', docOrder.id);
+  }
+
+}
+ */

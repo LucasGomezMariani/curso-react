@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 function CartCard({ product, handleClick }) {
   return (
     <div className="card mb-3" style={{ maxHeight: '150px' }}>
-      <div className="row g-0">
+      <div className="row g-0 align-items-center">
         <div className="col-md-3">
           <Link to={`/item/${product.id}`}>
-          <img src={product.imgurl} className="rounded-start p-3" alt="..." style={{ maxHeight: '150px', width: 'auto' }} />
+          <img src={product.imgurl} className="rounded-start p-3 " alt="..." style={{ maxHeight: '150px', maxWidth: '100%' }} />
           </Link>
         </div>
         <div className="col-md-6">

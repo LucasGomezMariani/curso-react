@@ -5,6 +5,7 @@ import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContextProvider } from './context/cartContext';
 import CartView from './components/CartView/CartView';
+import CheckOut from './components/CheckOut/CheckOut';
 
 function App() {
   
@@ -17,6 +18,7 @@ function App() {
           <Route path='/category/:id' element={<ItemListContainer />} />
           <Route path='/item/:id' element={<ItemDetailContainer />} />
           <Route path='/cart' element={<CartView/>} />
+          <Route path='/checkout/:idOrder' element={<CheckOut/>} />
           <Route path='*' element={<h1>No hay nada por aqui! esta pagina no existe, lo 100to.</h1>} />
         </Routes>
       </BrowserRouter>
