@@ -9,11 +9,12 @@ import { cartContext } from '../../context/cartContext';
 
 function CartWidget() {
 	// 3. Inicializamos el contexto
-	const miContext = useContext(cartContext)
+	const {itemsInCart} = useContext(cartContext)
 	return (
 		<Link to={"/cart"}>
-			<FontAwesomeIcon icon={faCartShopping} style={{color: 'white', marginLeft:'10px'}}/>
-			<small style={{color: 'white'}} className='ms-1'>{miContext.itemsInCart()}</small>
+			<FontAwesomeIcon icon={faCartShopping} style={{ color: 'white', marginLeft: '10px' }} />
+			{(itemsInCart() === 0) || <small style={{ color: 'white' }} className='ms-1'>{itemsInCart()}</small>}
+
 		</Link>
 	)
 }

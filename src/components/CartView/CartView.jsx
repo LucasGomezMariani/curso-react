@@ -10,7 +10,7 @@ function CartView() {
   const { cart, clearCart, removeItem, priceInCart } = useContext(cartContext)
   const navigate = useNavigate();
 
-  async function handleBuy(evt, data) {
+  async function handleBuy(data) {
     const orderData = {
       buyer: data,
       items: cart,

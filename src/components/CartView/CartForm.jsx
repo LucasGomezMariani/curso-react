@@ -24,7 +24,7 @@ export default function CartForm(props) {
     if (data.name.length === 0) return;
 
     evt.preventDefault();
-    props.onSubmit(evt, data);
+    props.onSubmit(data);
   }
 
   return (

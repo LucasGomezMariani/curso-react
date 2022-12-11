@@ -58,7 +58,6 @@ export async function postOrder(orderData) {
   const collectionRef = collection(DB, 'orders');
   const docOrder = await addDoc(collectionRef, orderData);
   console.log('====================================');
-  console.log(docOrder);
   console.log(docOrder.id);
   console.log('====================================');
   return docOrder.id;
