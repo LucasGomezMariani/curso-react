@@ -10,15 +10,14 @@ function Search() {
     setSearchKeyword(evt.target.value)
   }
 
-  async function getItemsAsync() {
+  async function getItemsFiltered() {
     let answer = await getSearchItems(searchKeyword);
-    setProducts(answer);
-    return products;
+    return answer;
   }
 
   function clickSearch(evt) {
     evt.preventDefault();
-    getItemsAsync();    
+    getItemsFiltered();    
   }
 
 
