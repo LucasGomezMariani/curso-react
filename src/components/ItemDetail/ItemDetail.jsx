@@ -20,10 +20,10 @@ function ItemDetail({ product }) {
         <h5 className="card-header">{product.title}</h5>
         <div className="row">
           <div className="col-4">
-            <img src={product.imgurl} style={{maxHeight: '250px'}} alt={`${product.title} ${product.id}`} />
+            <img className='img-fluid' src={product.imgurl} style={{maxHeight: '250px'}} alt={`${product.title} ${product.id}`} />
           </div>
-          <div className="col-8">
-            <div className="card-body align-center">
+          <div className="col-8 d-flex">
+            <div className="card-body" style={{alignSelf: 'center'}}>
               <h2 className="card-title">{`$ ${product.price}`}</h2>
               <p className="card-text">{product.description}</p>
               {isInCart ?

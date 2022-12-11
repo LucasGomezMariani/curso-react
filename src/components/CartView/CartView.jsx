@@ -32,7 +32,6 @@ function CartView() {
       {/* botonera */}
       <div className="d-flex justify-content-center">
         <button onClick={clearCart} type="button" className="btn btn-danger m-1">Vaciar carrito</button>
-        <button onClick={handleBuy} type="button" className="btn btn-success m-1">Comprar</button>
         <h3 className='m-1'>Total de la compra <strong>${priceInCart()}</strong> </h3>
       </div>
       <CartForm onSubmit={handleBuy}/>
