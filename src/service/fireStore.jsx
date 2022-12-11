@@ -52,6 +52,23 @@ export async function getDocumentByCategory(categoryParam) {
   return documentData;
 
 }
+export function getSearchItems(keyword) {
+  keyword = keyword.trim().toLowerCase();
+  
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      if (keyword.length === 0) {
+        resolve(getData());
+      } else {
+        let dataBase = getData()
+        let itemsRequested = dataBase.filter((item) =>
+          item.title.toLowerCase().includes(keyword)
+        );
+        resolve(itemsRequested);
+      }
+    }, 1000);
+  });
+}
 
 // Envio de orden de compra a FireBase
 export async function postOrder(orderData) {
