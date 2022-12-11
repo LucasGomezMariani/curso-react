@@ -12,8 +12,8 @@ function CartWidget() {
 	const miContext = useContext(cartContext)
 	return (
 		<Link to={"/cart"}>
-			<FontAwesomeIcon icon={faCartShopping} />
-			<span>{miContext.itemsInCart()}</span>
+			<FontAwesomeIcon icon={faCartShopping} style={{color: 'white', marginLeft:'10px'}}/>
+			<small style={{color: 'white'}} className='ms-1'>{miContext.itemsInCart()}</small>
 		</Link>
 	)
 }

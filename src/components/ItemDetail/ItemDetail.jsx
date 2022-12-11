@@ -15,14 +15,14 @@ function ItemDetail({ product }) {
     setIsInCart(true)
   }
   return (<>
-    <div className="container d-flex justify-content-center">
-      <div className="card w-100 m-5 text-center">
+    <div className="container ">
+      <div className="card w-100 m-4 text-center">
         <h5 className="card-header">{product.title}</h5>
         <div className="row">
-          <div className="col">
-            <img src={product.imgurl} className="img-fluid" alt={`${product.title} ${product.id}`} />
+          <div className="col-4">
+            <img src={product.imgurl} style={{maxHeight: '250px'}} alt={`${product.title} ${product.id}`} />
           </div>
-          <div className="col">
+          <div className="col-8">
             <div className="card-body align-center">
               <h2 className="card-title">{`$ ${product.price}`}</h2>
               <p className="card-text">{product.description}</p>
