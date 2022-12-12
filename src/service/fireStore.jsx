@@ -12,22 +12,19 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-// 0. inicializa firebase
 const DB = getFirestore(app);
-// 1. Traer todos los documentos
+
 export async function getData() {
   const collectionProductsRef = collection(DB, 'products');
   const documentsSnapshot = await getDocs(collectionProductsRef);
-
   const documentData = documentsSnapshot.docs.map(doc => {
     let docDataWithId = doc.data();
     docDataWithId.id = doc.id;
     return docDataWithId;
   })
-
   return documentData;
 }
-// 2. Traer un ducumento segun el id
+
 export async function getDataById(idParam) {
   const docRef = doc(DB, 'products', idParam);
   const docSnapshot = await getDoc(docRef);
@@ -36,21 +33,17 @@ export async function getDataById(idParam) {
     id: docSnapshot.id
   }
 }
-// 3. Traer los documentos segun la categoría
+
 export async function getDocumentByCategory(categoryParam) {
   const collectionFilteredProductsRef = collection(DB, 'products');
   const queryCategory = query(collectionFilteredProductsRef, where('category', '==', categoryParam));
-
   const documentsSnapshot = await getDocs(queryCategory);
-
   const documentData = documentsSnapshot.docs.map(doc => {
     let docDataWithId = doc.data();
     docDataWithId.id = doc.id;
     return docDataWithId;
   })
-
   return documentData;
-
 }
 
 // Envio de orden de compra a FireBase

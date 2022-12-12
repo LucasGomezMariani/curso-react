@@ -6,7 +6,6 @@ import { Title } from "../Title/Title";
 import { LinesLoader } from './../loader/Loaders';
 
 function ItemListContainer() {
-
   const [products, setProducts] = useState(null);
   const { id } = useParams();
 
@@ -21,9 +20,7 @@ function ItemListContainer() {
   }
 
   useEffect(() => {
-    // 1° funcion del efecto. La que ejecuta el efecto
     getDataAsync()
-    // 2° funcion del efecto. Se ejecuta cuando se desmonta el componente
     return () => { setProducts(null) }
   }, [id]);
 
