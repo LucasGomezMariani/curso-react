@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContextProvider } from './context/cartContext';
 import CartView from './components/CartView/CartView';
 import CheckOut from './components/CheckOut/CheckOut';
+import Error404 from './components/404/404';
 
 function App() {
   
@@ -19,7 +20,7 @@ function App() {
           <Route path='/item/:id' element={<ItemDetailContainer />} />
           <Route path='/cart' element={<CartView/>} />
           <Route path='/checkout/:idOrder' element={<CheckOut/>} />
-          <Route path='*' element={<h1>No hay nada por aqui! esta pagina no existe, lo 100to.</h1>} />
+          <Route path='*' element={<Error404/>} />
         </Routes>
       </BrowserRouter>
     </CartContextProvider>

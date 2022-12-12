@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { collection, getDocs, getFirestore, doc, getDoc, where, query, addDoc } from "firebase/firestore";
-/* import products from "../data/data";
- */
+// import products from "../data/data";
+
 const firebaseConfig = {
   apiKey: "AIzaSyAyfXEOQ9D4Pa3bjhJzkPvl-WaV_0mxFpI",
   authDomain: "baratito-4739d.firebaseapp.com",
@@ -36,7 +36,7 @@ export async function getDataById(idParam) {
     id: docSnapshot.id
   }
 }
-// 3. Traer los ducumentos segun la categoría
+// 3. Traer los documentos segun la categoría
 export async function getDocumentByCategory(categoryParam) {
   const collectionFilteredProductsRef = collection(DB, 'products');
   const queryCategory = query(collectionFilteredProductsRef, where('category', '==', categoryParam));
@@ -52,7 +52,21 @@ export async function getDocumentByCategory(categoryParam) {
   return documentData;
 
 }
-export function getSearchItems(keyword) {
+
+// Envio de orden de compra a FireBase
+export async function postOrder(orderData) {
+  const collectionRef = collection(DB, 'orders');
+  const docOrder = await addDoc(collectionRef, orderData);
+  return docOrder.id;
+}
+
+
+/* ------------------------------------------------------------------------------------------------ */
+
+
+// Funcion para realizar la busqueda en el input del navBar. No la pude resolver. Me queda pendiente para la semana.
+
+/* export function getSearchItems(keyword) {
   keyword = keyword.trim().toLowerCase();
   
   return new Promise((resolve) => {
@@ -62,25 +76,20 @@ export function getSearchItems(keyword) {
       } else {
         let dataBase = getData()
         let itemsRequested = dataBase.filter((item) =>
-          item.title.toLowerCase().includes(keyword)
+        item.title.toLowerCase().includes(keyword)
         );
         resolve(itemsRequested);
       }
     }, 1000);
   });
-}
+} */
 
-// Envio de orden de compra a FireBase
-export async function postOrder(orderData) {
-  const collectionRef = collection(DB, 'orders');
-  const docOrder = await addDoc(collectionRef, orderData);
-  console.log('====================================');
-  console.log(docOrder.id);
-  console.log('====================================');
-  return docOrder.id;
-}
+
+/* ------------------------------------------------------------------------------------------------ */
+
 
 // Funcion para subir datos a FireBase desde un array
+
 /* export async function postProducts() {
   const collectionRef = collection(DB, 'products');
 
@@ -88,6 +97,5 @@ export async function postOrder(orderData) {
     let docOrder = await addDoc(collectionRef, item);
     console.log('documento creado, Id:', docOrder.id);
   }
-
 }
  */

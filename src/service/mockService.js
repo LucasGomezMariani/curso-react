@@ -13,7 +13,6 @@ function getData(id) {
 				resolve(itemRequested)
 			}, 1000)
 		}
-
 	});
 }
 
@@ -24,8 +23,6 @@ export function getSingleItem(id) {
 		setTimeout(() => {
 			resolve(itemRequested);
 		}, 1000);
-
-
 	});
 }
 export default getData;

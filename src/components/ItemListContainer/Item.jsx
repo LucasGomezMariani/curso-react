@@ -4,7 +4,7 @@ function Item({ product }) {
   const urlDetail = `/item/${product.id}`
 
   return (
-    <div className="card" style={{ margin: '0 .5rem' }}>
+    <div className="card mb-3" style={{ margin: '0 .5rem' }}>
       <Link to={urlDetail}>
         <img src={product.imgurl} style={{ height: '150px', margin: '.8rem 0' }} className="card-img-top" alt={`${product.title} ${product.id}`} />
       </Link>

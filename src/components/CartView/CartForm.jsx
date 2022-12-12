@@ -5,6 +5,7 @@ export default function CartForm(props) {
   const [data, setData] = useState({
     name: "",
     email: "",
+    reEmail: "",
     phone: "",
     adress: ""
   });
@@ -17,7 +18,6 @@ export default function CartForm(props) {
     let newData = { ...data };
     newData[nameInput] = value;
     setData(newData);
-    console.log(data);
   }
 
   function onSubmit(evt) {
@@ -32,10 +32,13 @@ export default function CartForm(props) {
       <form onSubmit={onSubmit}>
         <CartFormInput value={data.name} name={'name'} type={'text'} onChange={onInputChange} title={'Nombre'} />
         <CartFormInput value={data.email} name={'email'} type={'email'} onChange={onInputChange} title={'Email'} />
+        <CartFormInput value={data.reEmail} name={'reEmail'} type={'email'} onChange={onInputChange} title={'Confirmar email'} />
+        {data.email !== data.reEmail&& <small style={{color: 'red'}}>El email ingresado no coincide</small>}
         <CartFormInput value={data.phone} name={'phone'} type={'phone'} onChange={onInputChange} title={'Telefono'} />
         <CartFormInput value={data.adress} name={'adress'} type={'text'} onChange={onInputChange} title={'Dirección'} />
+        <br />
         <button
-          disabled={data.name === "" || data.phone === "" || data.email === "" || data.adress === ""}
+          disabled={data.name === "" || data.phone === "" || data.email === "" || data.adress === "" || data.email !== data.reEmail }
           type="submit"
           className="btn btn-success m-1"
         >

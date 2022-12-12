@@ -7,7 +7,7 @@ function CartCard({ product, handleClick }) {
       <div className="row g-0 align-items-center">
         <div className="col-md-3">
           <Link to={`/item/${product.id}`}>
-          <img src={product.imgurl} className="rounded-start p-3 " alt="..." style={{ maxHeight: '150px', maxWidth: '100%' }} />
+            <img src={product.imgurl} className="rounded-start p-3 " alt="..." style={{ maxHeight: '150px', maxWidth: '100%' }} />
           </Link>
         </div>
         <div className="col-md-6">
@@ -18,13 +18,10 @@ function CartCard({ product, handleClick }) {
         </div>
         <div className="col-md-3">
           <div className="card-body row align-items-center text-center">
-
             <h3 className="card-text">${product.price}</h3>
-
             <p className="card-text">Cantidad {product.count}</p>
             <div>
-            <button onClick={handleClick} type="button" className="btn btn-danger">Eliminar</button>            </div>
-
+              <button onClick={handleClick} type="button" className="btn btn-danger">Eliminar</button>            </div>
           </div>
         </div>
       </div>

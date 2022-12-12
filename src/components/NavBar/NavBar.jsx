@@ -1,4 +1,4 @@
-import './NavBar.css';
+import './navBar.css';
 import './categorias.css'
 import { CartWidget } from './CartWidget';
 import { Link } from "react-router-dom";
@@ -13,21 +13,25 @@ function NavBar({ logo, brand }) {
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link to="/category/electronica" className="nav-link active" aria-current="page">Electronica</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/category/calzado" className="nav-link active" aria-current="page">Calzado</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="/category/accesorios" className="nav-link active" aria-current="page">Accesorios</Link>
-            </li>
-            <li className="nav-item" style={{ alignSelf: 'center' }}>
-              <CartWidget />
-            </li>
-          </ul>
+        <div className="collapse navbar-collapse d-flex justify-content-between" id="navbarTogglerDemo02">
+
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Categorias
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <Link to="/category/electronica" className="dropdown-item" aria-current="page">Electronica</Link>
+              </li>
+              <li>
+                <Link to="/category/calzado" className="dropdown-item" aria-current="page">Calzado</Link>
+              </li>
+              <li>
+                <Link to="/category/accesorios" className="dropdown-item" aria-current="page">Accesorios</Link>
+              </li>
+            </ul>
+            <CartWidget />
+          </div>
           <Search />
         </div>
       </div>
